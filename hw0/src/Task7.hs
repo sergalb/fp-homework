@@ -2,6 +2,7 @@
 
 module Task7
   ( firstExpression
+  , secondExpression
   ) where
 
 
@@ -33,20 +34,20 @@ firstExpression = (($) :: ([String] -> Bool) -> [String] -> Bool) nullDotHead an
 
 
 
-                                      
--- | Full annotated expression                                         
+
+-- | Full annotated expression
 secondExpression :: [(Integer, Integer)]
 secondExpression = lambda
                   (((:) :: Either Integer Integer -> [Either Integer Integer] ->[Either Integer Integer])
-                    (Left onePlusTwo :: Either Integer Integer) 
+                    (Left onePlusTwo :: Either Integer Integer)
                     (((:) :: Either Integer Integer -> [Either Integer Integer] ->[Either Integer Integer])
-                      (Right twoPowerSix :: Either Integer Integer)  
+                      (Right twoPowerSix :: Either Integer Integer)
                       ([] :: [Either Integer Integer])))
-                      where 
+                      where
                         onePlusTwo = ((+) :: Integer -> Integer -> Integer) (1 :: Integer) (2 :: Integer)
                         twoPowerSix = ((^) :: Integer -> Integer -> Integer) (2 :: Integer) (6 :: Integer)
-                        
-lambda :: [Either Integer Integer] -> [(Integer, Integer)] 
+
+lambda :: [Either Integer Integer] -> [(Integer, Integer)]
 lambda (x :: [Either Integer Integer]) = (zip :: [Integer] -> [Integer] -> [(Integer, Integer)])
                                           (((lefts :: [Either Integer Integer] -> [Integer])  x) :: [Integer])
                                           (((rights :: [Either Integer Integer] -> [Integer])  x) :: [Integer])
