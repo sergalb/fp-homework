@@ -16,8 +16,9 @@ semigroupNonEmptyTests :: TestTree
 semigroupNonEmptyTests =
   testGroup
     "semigroupNonEmpty"
-    [ testCase "simple case" $ NE.toList (NE.fromList [1..5] <> NE.fromList [2,4..10]) @=? T2.toList (T2.fromList [1..5] <> T2.fromList [2, 4..10])
-
+    [ testCase "simple case" $
+      NE.toList (NE.fromList ([1 .. 5] :: [Integer]) <> NE.fromList [2,4 .. 10]) @=?
+      T2.toList (T2.fromList [1 .. 5] <> T2.fromList [2,4 .. 10])
     ]
 
 
